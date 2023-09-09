@@ -3,6 +3,11 @@ package com.easybbs.entity.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+
+/**
+ * 获取application配置信息
+ * 公共部分
+ */
 @Component
 public class AdminConfig extends AppConfig {
     /**

@@ -1,5 +1,8 @@
 package com.easybbs.entity.constants;
 
+/**
+ * 常量类
+ */
 public class Constants {
     public static final Integer ZERO = 0;
 
@@ -28,9 +31,9 @@ public class Constants {
      */
     public static final String SESSION_KEY_FREQUENCY = "session_key_frequency";
 
-    public static final String CHECK_CODE_KEY = "check_code_key";
+    public static final String CHECK_CODE_KEY = "check_code_key"; // 注册 未登录验证码
 
-    public static final String CHECK_CODE_KEY_EMAIL = "check_code_key_email";
+    public static final String CHECK_CODE_KEY_EMAIL = "check_code_key_email"; // 登录后邮箱验证码
 
     public static final String FILE_FOLDER_FILE = "/file/";
 

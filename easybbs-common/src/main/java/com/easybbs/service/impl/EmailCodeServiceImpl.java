@@ -134,6 +134,8 @@ public class EmailCodeServiceImpl implements EmailCodeService {
         return this.emailCodeMapper.deleteByEmailAndCode(email, code);
     }
 
+
+    // ******** 真正发邮件功能
     private void sendEmailCode(String toEmail, String code) {
         try {
             MimeMessage message = javaMailSender.createMimeMessage();
@@ -173,11 +175,14 @@ public class EmailCodeServiceImpl implements EmailCodeService {
         if (webConfig.getSendEmailCode() != null && webConfig.getSendEmailCode()) {
             sendEmailCode(toEmail, code);
         }
-        emailCodeMapper.disableEmailCode(toEmail);
+        emailCodeMapper.disableEmailCode(toEmail); // 先禁用前一个验证码
+
+        // int a = 1 / 0  验证事务
+
         EmailCode emailCode = new EmailCode();
         emailCode.setCode(code);
         emailCode.setEmail(toEmail);
-        emailCode.setStatus(0);
+        emailCode.setStatus(Constants.ZERO); // 0 验证码未使用
         emailCode.setCreateTime(new Date());
         emailCodeMapper.insert(emailCode);
     }

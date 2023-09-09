@@ -1,5 +1,6 @@
 package com.easybbs.mappers;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -24,6 +25,9 @@ public interface EmailCodeMapper<T, P> extends BaseMapper<T, P> {
      */
     T selectByEmailAndCode(@Param("email") String email, @Param("code") String code);
 
+    /**
+     * 验证码重复发送 前面一个无效
+     * @param email
+     */
     void disableEmailCode(@Param("email") String email);
-
 }

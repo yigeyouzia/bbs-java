@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Random;
 
+/**
+ * 此类用于创建验证码
+ */
 public class CreateImageCode {
     // 图片的宽度。
     private int width = 160;
@@ -179,6 +182,7 @@ public class CreateImageCode {
 
     }
 
+    // 写出数据 调用HttpServletResponse
     public void write(OutputStream sos) throws IOException {
         ImageIO.write(buffImg, "png", sos);
         sos.close();
